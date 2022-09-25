@@ -1,4 +1,4 @@
-package org.example;
+package ru.hixon;
 
 import java.io.IOException;
 import java.net.URI;
@@ -39,11 +39,11 @@ public class Indexer {
         Connection connection = null;
         try {
             // create a database connection
-            connection = DriverManager.getConnection("jdbc:sqlite:sample.db");
+            connection = DriverManager.getConnection("jdbc:sqlite:../docs/mydatabase.db");
             Statement statement = connection.createStatement();
             statement.setQueryTimeout(10);  // set timeout to 10 sec.
 
-            statement.executeUpdate("INSERT INTO myTable (id, name) VALUES (5, '" + UUID.randomUUID().toString() + "')");
+            statement.executeUpdate("INSERT INTO myTable (id, name) VALUES (7, '" + response.substring(0, 100) + UUID.randomUUID().toString() + "')");
         } catch (SQLException e) {
             // if the error message is "out of memory",
             // it probably means no database file is found
