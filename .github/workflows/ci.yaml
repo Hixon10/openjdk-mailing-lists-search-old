@@ -1,4 +1,4 @@
-name: Update OpenJDK Mailing lists
+name: Update OpenJDK Mailing lists index
 on:
   workflow_dispatch:
   schedule:
