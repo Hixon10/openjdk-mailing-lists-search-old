@@ -13,3 +13,5 @@ jobs:
           distribution: 'adopt'
       - name: Test with Gradle
         run: cd indexer && ./gradlew clean test -i
+      - name: Commit db changes
+        run: git status
