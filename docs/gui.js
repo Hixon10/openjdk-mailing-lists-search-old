@@ -19,7 +19,6 @@ const dataPromise = fetch(databaseURL+"?dummy="+ms, {
 	'pragma': 'no-cache'
   }
 }).then(res => {
-	res.arrayBuffer();
 	  worker.postMessage({
 		id:1,
 		action:"open",
