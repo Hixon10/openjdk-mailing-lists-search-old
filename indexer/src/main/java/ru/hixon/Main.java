@@ -1,4 +1,4 @@
-package org.example;
+package ru.hixon;
 
 public class Main {
     public static void main(String[] args) throws Exception {
