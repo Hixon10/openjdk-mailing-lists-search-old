@@ -24,7 +24,7 @@
 	
 	const db = new SQL.Database(new Uint8Array(buf));
   
-	var stmt = db.prepare("SELECT * FROM myTable WHERE name LIKE '%ryj%'");
+	var stmt = db.prepare("SELECT * FROM myTable");
 	
 	while (stmt.step()) { //
 	  var row = stmt.getAsObject();
