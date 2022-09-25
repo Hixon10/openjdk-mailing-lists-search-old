@@ -1,0 +1,35 @@
+<meta charset="utf8" />
+<html>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/sql.js/1.8.0/sql-asm-debug.js'></script>
+<script>
+  config = {
+    locateFile: (filename, prefix) => {
+      console.log(`prefix is : ${prefix}`);
+      return 'https://cdnjs.cloudflare.com/ajax/libs/sql.js/1.8.0/sql-wasm.wasm';
+    }
+  }
+  // The `initSqlJs` function is globally provided by all of the main dist files if loaded in the browser.
+  // We must specify this locateFile function if we are loading a wasm file from anywhere other than the current html page's folder.
+  const sqlPromise = initSqlJs(config);
+  
+  const dataPromise = fetch("https://hixon10.github.io/sqlite-browser-sample/mydatabase.db").then(res => res.arrayBuffer());
+  Promise.all([sqlPromise, dataPromise]).then((values) => {
+    const SQL = values[0];
+	const buf = values[1];
+	
+	const db = new SQL.Database(new Uint8Array(buf));
+  
+	var stmt = db.prepare("SELECT * FROM myTable WHERE name LIKE '%ryj%'");
+	
+	while (stmt.step()) { //
+	  var row = stmt.getAsObject();
+	  console.log('Here is a row: ' + JSON.stringify(row));
+	}
+  });
+</script>
+
+<body>
+  Output is in Javscript console
+</body>
+
+</html>
