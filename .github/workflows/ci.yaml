@@ -1,5 +1,7 @@
 name: CI
-on: [push]
+on:
+  schedule:
+    - cron: '*/10 * * * *'
 
 jobs:
   updateindex:
@@ -14,4 +16,4 @@ jobs:
       - name: Test with Gradle
         run: cd indexer && ./gradlew clean test -i
       - name: Commit db changes
-        run: git status
+        run: git add docs/mydatabase.db && git commit --message="update index" && git push origin main
