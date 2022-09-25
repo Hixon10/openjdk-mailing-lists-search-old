@@ -17,7 +17,16 @@
   // We must specify this locateFile function if we are loading a wasm file from anywhere other than the current html page's folder.
   const sqlPromise = initSqlJs(config);
   
-  const dataPromise = fetch("https://hixon10.github.io/openjdk-mailing-lists-search/mydatabase.db").then(res => res.arrayBuffer());
+  // disable cache https://stackoverflow.com/a/59493583/1756750
+  const databaseURL = "https://hixon10.github.io/openjdk-mailing-lists-search/mydatabase.db";
+  const ms = Date.now();
+  
+  const dataPromise = fetch(databaseURL+"?dummy="+ms, {
+  headers: {
+    'Cache-Control': 'no-cache',
+	'pragma': 'no-cache'
+  }
+  }).then(res => res.arrayBuffer());
   Promise.all([sqlPromise, dataPromise]).then((values) => {
     const SQL = values[0];
 	const buf = values[1];
