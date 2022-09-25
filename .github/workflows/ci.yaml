@@ -17,4 +17,4 @@ jobs:
       - name: Test with Gradle
         run: cd indexer && ./gradlew clean test -i
       - name: Commit db changes
-        run: git add docs/mydatabase.db && git commit --message="update index" && git push origin main
+        run: git config user.email "github-action@example.com" && git config user.name "Github Action" && git add docs/mydatabase.db && git commit --message="update index" && git push origin main
