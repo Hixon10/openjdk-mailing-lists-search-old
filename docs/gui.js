@@ -20,12 +20,13 @@ const dataPromise = fetch(databaseURL+"?dummy="+ms, {
   }
 }).then(res => {
 	const buf = res.arrayBuffer();
-	const arBuf = new Uint8Array(buf);
+	//const arBuf = new Uint8Array(buf);
+	const db = new SQL.Database(new Uint8Array(buf));
 	
 	  worker.postMessage({
-		id:1,
-		action:"open",
-		buffer: arBuf, /*Optional. An ArrayBuffer representing an SQLite Database file*/
+		id: 1,
+		action: "open",
+		buffer: db, /*Optional. An ArrayBuffer representing an SQLite Database file*/
 	  });
 });
 
