@@ -20,12 +20,7 @@ fetch(databaseURL+"?dummy="+ms, {
   }
 }).then(res => res.arrayBuffer())
   .then(buf => {
-	const bytes = buf.byteLength;
-	
 	const arBuf = new Uint8Array(buf);
-	console.log(bytes);
-	console.log("arBuf : " + arBuf.length);
-	console.log(res);
 	
 	  worker.postMessage({
 		id: 1,
