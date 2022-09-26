@@ -20,8 +20,10 @@ const dataPromise = fetch(databaseURL+"?dummy="+ms, {
   }
 }).then(res => {
 	const buf = res.arrayBuffer();
+	const bytes = buf.byteLength;
+	
 	const arBuf = new Uint8Array(buf);
-	const.log("buf : " + buf.byteLength);
+	const.log(bytes);
 	const.log("arBuf : " + arBuf.length);
 	console.log("Res = " + res);
 	
