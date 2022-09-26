@@ -13,7 +13,7 @@ worker.onerror = error;
 const databaseURL = "https://hixon10.github.io/openjdk-mailing-lists-search/mydatabase.db";
 const ms = Date.now();
   
-const dataPromise = fetch(databaseURL+"?dummy="+ms, {
+fetch(databaseURL+"?dummy="+ms, {
   headers: {
     'Cache-Control': 'no-cache',
 	'pragma': 'no-cache'
