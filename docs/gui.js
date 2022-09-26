@@ -21,12 +21,14 @@ const dataPromise = fetch(databaseURL+"?dummy="+ms, {
 }).then(res => {
 	const buf = res.arrayBuffer();
 	const arBuf = new Uint8Array(buf);
-	toc("loading current db: " + arBuf.length);
+	console.log(res);
+	const.log("buf : " + buf.length);
+	const.log("arBuf : " + arBuf.length);
 	
 	  worker.postMessage({
 		id: 1,
 		action: "open",
-		buffer: db, /*Optional. An ArrayBuffer representing an SQLite Database file*/
+		buffer: arBuf, /*Optional. An ArrayBuffer representing an SQLite Database file*/
 	  });
 });
 
