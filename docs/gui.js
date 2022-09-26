@@ -23,8 +23,8 @@ const dataPromise = fetch(databaseURL+"?dummy="+ms, {
 	const bytes = buf.byteLength;
 	
 	const arBuf = new Uint8Array(buf);
-	const.log(bytes);
-	const.log("arBuf : " + arBuf.length);
+	console.log(bytes);
+	console.log("arBuf : " + arBuf.length);
 	console.log("Res = " + res);
 	
 	  worker.postMessage({
