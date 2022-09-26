@@ -20,8 +20,8 @@ const dataPromise = fetch(databaseURL+"?dummy="+ms, {
   }
 }).then(res => {
 	const buf = res.arrayBuffer();
-	//const arBuf = new Uint8Array(buf);
-	const db = new SQL.Database(new Uint8Array(buf));
+	const arBuf = new Uint8Array(buf);
+	toc("loading current db: " + arBuf.length);
 	
 	  worker.postMessage({
 		id: 1,
