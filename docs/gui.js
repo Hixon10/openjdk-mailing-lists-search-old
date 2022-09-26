@@ -19,10 +19,13 @@ const dataPromise = fetch(databaseURL+"?dummy="+ms, {
 	'pragma': 'no-cache'
   }
 }).then(res => {
+	const buf = res.arrayBuffer();
+	const arBuf = new Uint8Array(buf);
+	
 	  worker.postMessage({
 		id:1,
 		action:"open",
-		buffer:res.arrayBuffer(), /*Optional. An ArrayBuffer representing an SQLite Database file*/
+		buffer: arBuf, /*Optional. An ArrayBuffer representing an SQLite Database file*/
 	  });
 });
 
