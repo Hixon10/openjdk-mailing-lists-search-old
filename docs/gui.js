@@ -21,9 +21,9 @@ const dataPromise = fetch(databaseURL+"?dummy="+ms, {
 }).then(res => {
 	const buf = res.arrayBuffer();
 	const arBuf = new Uint8Array(buf);
-	console.log(res);
 	const.log("buf : " + buf.length);
 	const.log("arBuf : " + arBuf.length);
+	console.log("Res = " + res);
 	
 	  worker.postMessage({
 		id: 1,
