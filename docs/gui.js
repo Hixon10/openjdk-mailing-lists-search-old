@@ -18,8 +18,8 @@ fetch(databaseURL+"?dummy="+ms, {
     'Cache-Control': 'no-cache',
 	'pragma': 'no-cache'
   }
-}).then(res => {
-	const buf = res.arrayBuffer();
+}).then(res => res.arrayBuffer())
+  .then(buf => {
 	const bytes = buf.byteLength;
 	
 	const arBuf = new Uint8Array(buf);
