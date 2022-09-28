@@ -26,7 +26,7 @@ public class IndexerTest {
         String html = new String(contentIs.readAllBytes(), StandardCharsets.UTF_8);
         Set<ThreadUrlInMailingList> threadUrls = Indexer.parseThreadLinks(html, Set.of(), "https://mail.openjdk.org/pipermail/valhalla-dev/");
 
-        Assertions.assertEquals(97, threadUrls.size());
+        Assertions.assertEquals(98, threadUrls.size());
         for (ThreadUrlInMailingList threadUrl : threadUrls) {
             Assertions.assertEquals("https://mail.openjdk.org/pipermail/valhalla-dev/", threadUrl.getMailingListUrl());
         }
