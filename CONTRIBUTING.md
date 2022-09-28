@@ -1,3 +1,5 @@
+# Search for openjdk mailing lists
+
 Thank you for investing your time in contributing to our project! 
 
 ## Code of Conduct
