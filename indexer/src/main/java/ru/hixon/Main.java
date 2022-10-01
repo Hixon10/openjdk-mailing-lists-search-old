@@ -28,6 +28,7 @@ public class Main {
 
     public void run(String dbUrl) throws IOException {
         LogManager.getLogManager().readConfiguration(Main.class.getResourceAsStream("/logging.properties"));
+        System.setProperty("jdk.httpclient.maxstreams", "500");
 
         try {
             HttpClient httpClient = HttpClient.newBuilder()
