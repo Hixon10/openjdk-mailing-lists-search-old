@@ -10,7 +10,7 @@ worker.onerror = error;
 // Open a database
 
 // disable cache https://stackoverflow.com/a/59493583/1756750
-const databaseURL = "https://hixon10.github.io/openjdk-mailing-lists-search/mydatabase.db";
+const databaseURL = "https://github.com/Hixon10/openjdk-mailing-lists-search/raw/main/docs/mydatabase.db";
 const ms = Date.now();
   
 fetch(databaseURL+"?dummy="+ms, {
