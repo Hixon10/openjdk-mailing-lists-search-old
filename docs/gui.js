@@ -8,24 +8,46 @@ var worker = new Worker("worker.sql-wasm-1.8.0.js");
 worker.onerror = error;
 
 // Open a database
+const databaseUrlPrefix = "https://hixon10.github.io/openjdk-mailing-lists-search/";
+const databasePartNames = ["db-part-00", "db-part-01", "db-part-02", "db-part-03", "db-part-04", "db-part-05", "db-part-06", "db-part-07", "db-part-08", "db-part-09"];
 
-// disable cache https://stackoverflow.com/a/59493583/1756750
-const databaseURL = "https://github.com/Hixon10/openjdk-mailing-lists-search/raw/main/docs/mydatabase.db";
-const ms = Date.now();
+const databasePartPromises = [];
+
+for (const dbPartName of databasePartNames) {
+	// disable cache https://stackoverflow.com/a/59493583/1756750
+	const ms = Date.now();
+	const currentPartUrl = databaseUrlPrefix+dbPartName+"?dummy="+ms;
+	const currentDbPartPromise = fetch(currentPartUrl, {
+		  headers: {
+			'Cache-Control': 'no-cache',
+			'pragma': 'no-cache'
+		  }
+		}).then(res => res.arrayBuffer())
+		  .then(buf => new Uint8Array(buf));
+	databasePartPromises.push(currentDbPartPromise);
+}
+
   
-fetch(databaseURL+"?dummy="+ms, {
-  headers: {
-    'Cache-Control': 'no-cache',
-	'pragma': 'no-cache'
-  }
-}).then(res => res.arrayBuffer())
-  .then(buf => {
-	const arBuf = new Uint8Array(buf);
+Promise.all(databasePartPromises)
+  .then(databaseParts => {
+	  
+	  // https://stackoverflow.com/a/49129872/1756750
+	  let length = 0;
+	  databaseParts.forEach(item => {
+		  length += item.length;
+	  });
+	  
+	  let mergedArray = new Uint8Array(length);
+	  let offset = 0;
+	  databaseParts.forEach(item => {
+		  mergedArray.set(item, offset);
+		  offset += item.length;
+	  });
 	
 	  worker.postMessage({
 		id: 1,
 		action: "open",
-		buffer: arBuf, /*Optional. An ArrayBuffer representing an SQLite Database file*/
+		buffer: databaseParts, /*Optional. An ArrayBuffer representing an SQLite Database file*/
 	  });
 });
 
