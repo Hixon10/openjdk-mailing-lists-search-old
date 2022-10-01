@@ -47,7 +47,7 @@ Promise.all(databasePartPromises)
 	  worker.postMessage({
 		id: 1,
 		action: "open",
-		buffer: databaseParts, /*Optional. An ArrayBuffer representing an SQLite Database file*/
+		buffer: mergedArray, /*Optional. An ArrayBuffer representing an SQLite Database file*/
 	  });
 });
 
