@@ -35,7 +35,7 @@ public class IndexerTest {
                 "https://mail.openjdk.org/pipermail/valhalla-dev/2021-May/thread.html"
         ), "https://mail.openjdk.org/pipermail/valhalla-dev/");
 
-        Assertions.assertEquals(96, threadUrls.size());
+        Assertions.assertEquals(97, threadUrls.size());
         for (ThreadUrlInMailingList threadUrl : threadUrls) {
             Assertions.assertEquals("https://mail.openjdk.org/pipermail/valhalla-dev/", threadUrl.getMailingListUrl());
         }
