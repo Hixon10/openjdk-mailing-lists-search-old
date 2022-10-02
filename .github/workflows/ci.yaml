@@ -14,7 +14,13 @@ jobs:
         with:
           java-version: '17'
           distribution: 'adopt'
-      - name: Test with Gradle
-        run: cd indexer && ./gradlew clean test -i
+      - name: Build database from parts
+        run: cat ./docs/db-part* > ./docs/emailindex.db
+      - name: Remove old parts
+        run: rm ./docs/db-part*        
+      - name: Update email index
+        run: cd indexer && ./gradlew clean test -i && cd ..
+      - name: Build database parts from database
+        run: cd docs && split --number=l/10 --numeric-suffixes emailindex.db db-part-      
       - name: Commit db changes
-        run: git config user.email "github-action@example.com" && git config user.name "Github Action" && git add docs/mydatabase.db && (git diff-index --quiet HEAD || (git commit --message="update index" && git push origin main))
+        run: git config user.email "github-action@example.com" && git config user.name "Github Action" && git add docs/db-part-* && (git diff-index --quiet HEAD || (git commit --message="update index" && git push origin main))
