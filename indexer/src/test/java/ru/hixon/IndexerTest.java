@@ -15,10 +15,8 @@ import static org.junit.jupiter.api.Assertions.*;
 public class IndexerTest {
 
     @Test
-    public void indexTest() {
-//        Indexer indexer = new Indexer();
-//        indexer.index();
-//        new Main().run();
+    public void indexTest() throws IOException {
+        new Main().run("jdbc:sqlite:../docs/emailindex.db");
         assertEquals(2, 1 + 1);
     }
 

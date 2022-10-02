@@ -19,16 +19,11 @@ public class Main {
     );
 
     public static void main(String[] args) throws Exception {
-        new Main().run("jdbc:sqlite:C:/Users/Hixon/Desktop/java-mailing-lists-search/indexer/src/main/java/ru/hixon/test.db");
-
-
-//        Indexer indexer = new Indexer();
-//        indexer.index();
+        new Main().run("jdbc:sqlite:../docs/newdb.db");
     }
 
     public void run(String dbUrl) throws IOException {
         LogManager.getLogManager().readConfiguration(Main.class.getResourceAsStream("/logging.properties"));
-        System.setProperty("jdk.httpclient.maxstreams", "500");
 
         try {
             HttpClient httpClient = HttpClient.newBuilder()
