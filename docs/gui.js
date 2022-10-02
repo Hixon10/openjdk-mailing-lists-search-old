@@ -44,6 +44,8 @@ function DownloadDatabase() {
 	}
 
 	console.log("Start downloading a database...");
+	downloadDbBtn.disabled = true;
+	downloadDbBtn.classList.remove("button");
 
 	const dataPromise = Promise.all(databasePartPromises);
 
@@ -67,8 +69,6 @@ function DownloadDatabase() {
 		db = new SQL.Database(mergedArray);
 		console.log("Database is ready");
 		
-		downloadDbBtn.disabled = true;
-		downloadDbBtn.classList.remove("button");
 		
 		execBtn.disabled = false; 
 		execBtn.classList.add("button");
