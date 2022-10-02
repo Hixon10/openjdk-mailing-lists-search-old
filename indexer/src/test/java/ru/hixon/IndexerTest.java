@@ -3,16 +3,26 @@ package ru.hixon;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
+import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.nio.charset.StandardCharsets;
 import java.text.ParseException;
 import java.util.List;
 import java.util.Set;
+import java.util.logging.LogManager;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 public class IndexerTest {
+
+    @Test
+    public void canInitLogsTest() throws IOException {
+        InputStream stream = Main.class.getResourceAsStream("/logging.properties");
+        String conf = new String(stream.readAllBytes(), StandardCharsets.UTF_8);
+        Assertions.assertTrue(conf.contains("handlers= java.util.logging.ConsoleHandler"));
+        LogManager.getLogManager().readConfiguration(new ByteArrayInputStream(conf.getBytes()));
+    }
 
     @Test
     public void parseThreadLinksTest() throws IOException {

@@ -15,7 +15,20 @@ public class Main {
 
     private static final List<String> mailingListArchives = List.of(
             "https://mail.openjdk.org/pipermail/valhalla-dev/",
-            "https://mail.openjdk.org/pipermail/amber-dev/"
+            "https://mail.openjdk.org/pipermail/amber-dev/",
+            "https://mail.openjdk.org/pipermail/panama-dev/",
+            "https://mail.openjdk.org/pipermail/nio-dev/",
+            "https://mail.openjdk.org/pipermail/loom-dev/",
+            "https://mail.openjdk.org/pipermail/lilliput-dev/",
+            "https://mail.openjdk.org/pipermail/leyden-dev/",
+            "https://mail.openjdk.org/pipermail/jdk-dev/",
+            "https://mail.openjdk.org/pipermail/hotspot-gc-dev/",
+            "https://mail.openjdk.org/pipermail/hotspot-dev/",
+            "https://mail.openjdk.org/pipermail/hotspot-compiler-dev/",
+            "https://mail.openjdk.org/pipermail/graal-dev/",
+            "https://mail.openjdk.org/pipermail/core-libs-dev/",
+            "https://mail.openjdk.org/pipermail/compiler-dev/",
+            "https://mail.openjdk.org/pipermail/announce/"
     );
 
     public static void main(String[] args) throws Exception {
