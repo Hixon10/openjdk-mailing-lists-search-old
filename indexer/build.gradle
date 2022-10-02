@@ -10,6 +10,16 @@ java {
     targetCompatibility = JavaVersion.VERSION_17
 }
 
+jar {
+    manifest {
+        attributes 'Main-Class': 'ru.hixon.Main'
+    }
+
+    from {
+        configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) }
+    }
+}
+
 repositories {
     mavenCentral()
 }

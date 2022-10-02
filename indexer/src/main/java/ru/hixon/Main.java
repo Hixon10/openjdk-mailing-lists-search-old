@@ -19,11 +19,20 @@ public class Main {
     );
 
     public static void main(String[] args) throws Exception {
-        new Main().run("jdbc:sqlite:../docs/newdb.db");
+        final String dbUrl;
+        if (args.length > 0) {
+            dbUrl = args[0];
+        } else {
+            dbUrl = "jdbc:sqlite:../../../docs/newdb.db";
+        }
+
+        new Main().run(dbUrl);
     }
 
     public void run(String dbUrl) throws IOException {
         LogManager.getLogManager().readConfiguration(Main.class.getResourceAsStream("/logging.properties"));
+
+        logger.info("Using dbUrl=" + dbUrl);
 
         try {
             HttpClient httpClient = HttpClient.newBuilder()

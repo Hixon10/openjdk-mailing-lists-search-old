@@ -19,7 +19,7 @@ jobs:
       - name: Remove old parts
         run: rm ./docs/db-part*        
       - name: Update email index
-        run: cd indexer && ./gradlew clean test -i && cd ..
+        run: java -jar ./indexer-binary/indexer-1.0-SNAPSHOT.jar jdbc:sqlite:./docs/emailindex.db
       - name: Build database parts from database
         run: cd docs && split --number=l/10 --numeric-suffixes emailindex.db db-part-      
       - name: Commit db changes
