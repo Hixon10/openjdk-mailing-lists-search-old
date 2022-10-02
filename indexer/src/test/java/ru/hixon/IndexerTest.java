@@ -15,12 +15,6 @@ import static org.junit.jupiter.api.Assertions.*;
 public class IndexerTest {
 
     @Test
-    public void indexTest() throws IOException {
-        new Main().run("jdbc:sqlite:../docs/emailindex.db");
-        assertEquals(2, 1 + 1);
-    }
-
-    @Test
     public void parseThreadLinksTest() throws IOException {
         InputStream contentIs = getClass().getResourceAsStream("/archivesPage.html");
         String html = new String(contentIs.readAllBytes(), StandardCharsets.UTF_8);
