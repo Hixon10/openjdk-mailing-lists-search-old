@@ -33,10 +33,10 @@ public class Main {
             dbUrl = "jdbc:sqlite:../../../docs/newdb.db";
         }
 
-        new Main().run(dbUrl);
+        new Main().run(dbUrl, mailingListArchives);
     }
 
-    public void run(String dbUrl) throws IOException {
+    public void run(String dbUrl, List<String> mailingList) throws IOException {
         LogManager.getLogManager().readConfiguration(Main.class.getResourceAsStream("/logging.properties"));
 
         logger.info("Using dbUrl=" + dbUrl);
@@ -50,7 +50,7 @@ public class Main {
             Database database = new Database(dbUrl);
             database.executeDatabaseMigrations();
 
-            Indexer indexer = new Indexer(database, httpClient, mailingListArchives);
+            Indexer indexer = new Indexer(database, httpClient, mailingList);
             indexer.index();
         } catch (Throwable th) {
             logger.log(Level.SEVERE, "Got unhandled exception", th);
