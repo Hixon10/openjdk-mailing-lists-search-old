@@ -7,19 +7,14 @@ The unique thing of this project is local search. When you open [a search page](
 The bad thing is you need to download the whole search index. The good thing is you can execute arbitrary sql queries on top of this db.
 
 ## Currently indexed mailing lists:
+- [https://mail.openjdk.org/pipermail/valhalla-dev/](https://mail.openjdk.org/pipermail/valhalla-dev/)
 - [https://mail.openjdk.org/pipermail/amber-dev](https://mail.openjdk.org/pipermail/amber-dev)
 - [https://mail.openjdk.org/pipermail/panama-dev](https://mail.openjdk.org/pipermail/panama-dev)
-- [https://mail.openjdk.org/pipermail/nio-dev](https://mail.openjdk.org/pipermail/nio-dev)
 - [https://mail.openjdk.org/pipermail/loom-dev](https://mail.openjdk.org/pipermail/loom-dev)
 - [https://mail.openjdk.org/pipermail/lilliput-dev](https://mail.openjdk.org/pipermail/lilliput-dev)
 - [https://mail.openjdk.org/pipermail/leyden-dev](https://mail.openjdk.org/pipermail/leyden-dev)
 - [https://mail.openjdk.org/pipermail/jdk-dev](https://mail.openjdk.org/pipermail/jdk-dev)
-- [https://mail.openjdk.org/pipermail/hotspot-gc-dev](https://mail.openjdk.org/pipermail/hotspot-gc-dev)
-- [https://mail.openjdk.org/pipermail/hotspot-dev](https://mail.openjdk.org/pipermail/hotspot-dev)
-- [https://mail.openjdk.org/pipermail/hotspot-compiler-dev](https://mail.openjdk.org/pipermail/hotspot-compiler-dev)
 - [https://mail.openjdk.org/pipermail/graal-dev](https://mail.openjdk.org/pipermail/graal-dev)
-- [https://mail.openjdk.org/pipermail/core-libs-dev](https://mail.openjdk.org/pipermail/core-libs-dev)
-- [https://mail.openjdk.org/pipermail/compiler-dev](https://mail.openjdk.org/pipermail/compiler-dev)
 - [https://mail.openjdk.org/pipermail/announce](https://mail.openjdk.org/pipermail/announce)
  
 
