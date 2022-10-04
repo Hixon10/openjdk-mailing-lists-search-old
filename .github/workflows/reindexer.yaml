@@ -21,6 +21,8 @@ jobs:
       - name: Update email index
         run: java -jar ./indexer-binary/indexer-1.0-SNAPSHOT.jar jdbc:sqlite:./docs/emailindex.db
       - name: Build database parts from database
-        run: cd docs && split --number=l/10 --numeric-suffixes emailindex.db db-part-      
+        run: cd docs && split --number=l/10 --numeric-suffixes emailindex.db db-part-
+      - name: Write database size to file
+        run: du -b emailindex.db |stdbuf -o0 cut -f1 > dbsize.txt        
       - name: Commit db changes
         run: git config user.email "github-action@example.com" && git config user.name "Github Action" && git add docs/db-part-* && (git diff-index --quiet HEAD || (git commit --message="update index" && git push origin main))
