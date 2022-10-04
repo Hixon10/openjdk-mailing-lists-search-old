@@ -23,6 +23,6 @@ jobs:
       - name: Build database parts from database
         run: cd docs && split --number=l/10 --numeric-suffixes emailindex.db db-part-
       - name: Write database size to file
-        run: du -b emailindex.db |stdbuf -o0 cut -f1 > dbsize.txt        
+        run: cd docs && new_size=`du -b emailindex.db | cut -f1`; current_size=`cat dbsize.txt | cut -d "|" -f1`; timestamp=$(date +%s); if [ $new_size != $current_size ]; then echo $new_size"|"$timestamp > dbsize.txt; fi;        
       - name: Commit db changes
-        run: git config user.email "github-action@example.com" && git config user.name "Github Action" && git add docs/db-part-* && (git diff-index --quiet HEAD || (git commit --message="update index" && git push origin main))
+        run: git config user.email "github-action@example.com" && git config user.name "Github Action" && git add docs/db-part-* && git add docs/dbsize.txt && (git diff-index --quiet HEAD || (git commit --message="update index" && git push origin main))
