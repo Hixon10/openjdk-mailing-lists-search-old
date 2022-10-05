@@ -25,6 +25,6 @@ The bad thing is you need to download the whole search index. The good thing is 
 
 
 ## Monitoring implementation details
-1. After reindexing, we check a new database size. If it is differ from the old one, we write new database size and current timestamp to (dbsize.txt)[https://github.com/Hixon10/openjdk-mailing-lists-search/blob/main/docs/dbsize.txt]. It is implemented as one of (actions steps)[https://github.com/Hixon10/openjdk-mailing-lists-search/blob/main/.github/workflows/reindexer.yaml#L26].
-2. We have a (Cloudflare Worker)[https://github.com/Hixon10/openjdk-mailing-lists-search/blob/main/monitoring/worker.js]. It has (Cron trigger)[https://developers.cloudflare.com/workers/platform/cron-triggers/], which executes this worker every few hours.
-3. The worker checks, when the database was updated last time. If it happend more than (5 days)[https://github.com/Hixon10/openjdk-mailing-lists-search/blob/main/monitoring/worker.js#L15] ago, the worker sends email.
+1. After reindexing, we check a new database size. If it is differ from the old one, we write new database size and current timestamp to [dbsize.txt](https://github.com/Hixon10/openjdk-mailing-lists-search/blob/main/docs/dbsize.txt). It is implemented as one of [actions steps](https://github.com/Hixon10/openjdk-mailing-lists-search/blob/main/.github/workflows/reindexer.yaml#L26).
+2. We have a [Cloudflare Worker](https://github.com/Hixon10/openjdk-mailing-lists-search/blob/main/monitoring/worker.js). It has [Cron trigger](https://developers.cloudflare.com/workers/platform/cron-triggers/), which executes this worker every few hours.
+3. The worker checks, when the database was updated last time. If it happend more than [5 days](https://github.com/Hixon10/openjdk-mailing-lists-search/blob/main/monitoring/worker.js#L15) ago, the worker sends email.
