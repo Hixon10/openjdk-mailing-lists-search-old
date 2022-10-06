@@ -28,3 +28,8 @@ The bad thing is you need to download the whole search index. The good thing is 
 1. After reindexing, we check a new database size. If it is differ from the old one, we write new database size and current timestamp to [dbsize.txt](https://github.com/Hixon10/openjdk-mailing-lists-search/blob/main/docs/dbsize.txt). It is implemented as one of [actions steps](https://github.com/Hixon10/openjdk-mailing-lists-search/blob/main/.github/workflows/reindexer.yaml#L26).
 2. We have a [Cloudflare Worker](https://github.com/Hixon10/openjdk-mailing-lists-search/blob/main/monitoring/worker.js). It has [Cron trigger](https://developers.cloudflare.com/workers/platform/cron-triggers/), which executes this worker every few hours.
 3. The worker checks, when the database was updated last time. If it happend more than [5 days](https://github.com/Hixon10/openjdk-mailing-lists-search/blob/main/monitoring/worker.js#L15) ago, the worker sends email.
+
+## Credits
+1. [Gunnar Morling - How I Built a Serverless Search for My Blog](https://www.morling.dev/blog/how-i-built-a-serverless-search-for-my-blog/) for idea of this project. 
+2. [https://github.com/sql-js/sql.js/](https://github.com/sql-js/sql.js/) for a great library, which allows to use SQLite from browser.
+3. [https://github.com/](https://github.com/) for free Actions for open-source projects.
