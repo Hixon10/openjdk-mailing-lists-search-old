@@ -1,3 +1,5 @@
+New version is https://github.com/Hixon10/openjdk-mailing-lists-search
+
 # Search for openjdk mailing lists
 
 This project allows you to search across several [OpenJDK mailing lists](https://mail.openjdk.org/mailman/listinfo). 
