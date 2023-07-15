@@ -43,7 +43,7 @@ function DownloadDatabase() {
 		databasePartPromises.push(currentDbPartPromise);
 	}
 
-	console.log("Start downloading a database...");
+	console.log("Start downloading a database....");
 	downloadDbBtn.disabled = true;
 	downloadDbBtn.classList.remove("button");
 
